@@ -1,0 +1,140 @@
+---
+title: "Start-up"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Installation
+
+For this talk, we assume that you have some familiarity with Git/Github and will be working within RStudio. 
+
+Detailed installation instructions can be found [here](https://github.com/jdblischak/workflowr). In summary, be sure you have:
+
+1. `R`
+  + (Recommended) [RStudio](https://www.rstudio.com/products/rstudio/download/)
+  + (Optional) [pandoc](https://rmarkdown.rstudio.com/docs/articles/pandoc.html)
+  + (Optional) [git](https://git-scm.com/)
+2. Github account
+
+To install the `workflowr` package, you can run
+
+```{r install_workflowr, eval = FALSE}
+# From CRAN
+install.packages("workflowr")
+```
+
+## Set-up a `workflowr` project
+
+There are multiple ways to set-up a `workflowr` project. These steps can be done in almost any order, but loosely involve:
+
+1. Create a local folder for the project. 
+2. Initializing the folder using `workflowr`.
+3. Linking the project folder to Git/Github. 
+
+Typically, I set up a `workflowr` project as follows:
+
+1. [**Create a new repo on Github.**](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/create-a-repo) Here, my repo is called `intro_to_workflowr`. 
+2. [**Clone the repo locally.**](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+3. [**Start an RStudio project.**](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) in the local repo
+4. **Initialize `workflowr`**:
+
+```{r init_workflowr, eval = FALSE}
+library("workflowr")
+
+# Configure Git (only need to do once per computer)
+wflow_git_config(user.name = "your name", user.email = "email@domain")
+
+# Start a new workflowr project
+# Note that once you initialize a project as a `workflowr` project, workflowr will 
+# automatically be attached when you open the project
+wflow_start(".", existing = TRUE)
+```
+
+## Project components
+
+`wflow_start()` initializes the folder with the following subfolders and files:
+
+```
+intro_to_workflowr/
+├── .gitignore
+├── .Rprofile
+├── _workflowr.yml
+├── analysis/
+│   ├── about.Rmd
+│   ├── index.Rmd
+│   ├── license.Rmd
+│   └── _site.yml
+├── code/
+│   ├── README.md
+├── data/
+│   └── README.md
+├── docs/
+├── myproject.Rproj
+├── output/
+│   └── README.md
+└── README.md
+```
+
+These folder are meant to suggest some kind of organization to the project files. However, you are free to change the organization. The only folders/files that should not be deleted/renamed are:
+
+* `analysis`: contain all the Rmd's for the webpage/site. You can have more Rmd's that do not display or are not linked on the site. 
+  + `index.Rmd`: site homepage. 
+  + `_site.yml`: navigation bar and theme customization
+* `docs`: folder of knitted Rmd's. This is used to generate your sharable webpage. 
+* `_workflowr.yml`: configurations for reproducing and knitting the htmls. Specifically, it lists the seed set at the start of compilation of every document, as well as which directory the Rmd's are knit from. 
+
+The rest of the directories are optional and there to help organize code and output. 
+
+## Adding a new analysis document
+
+The command `wflow_open("analysis/title.Rmd")` creates a new Rmd in the `analysis` folder and opens the file for editing in the RStudio editor window. 
+
+You can create an Rmd using the normal drop-downs in the RStudio editor, but the following line must be included in the YAML header to ensure that the reproduciblility checks are included in the knitted html. 
+
+```
+output: workflowr::wflow_html
+```
+
+## Build the site
+
+The website can be built/previewed using the command
+
+```{r build_site, eval = FALSE}
+wflow_build()
+```
+
+This command only build files that have been changed since the last build. If you want to rebuild specific files, you can specify the file using
+
+```{r rebuild_site, eval = FALSE}
+wflow_build(c("analysis/rebuild_file.Rmd", "analysis/rebuild_file_2.Rmd"))
+```
+
+Note that if you change the navigation bar, you have to rebuild all the files so that each file shows the new navigation bar.  
+
+The current site can be viewed locally using:
+
+```{r view_site, eval = FALSE}
+wflow_view()
+```
+
+## Version control
+
+Up until now, all of the changes have been made locally. To commit the changes to Github, you can use the usual `git add/commit` and `git push` commands in the terminal. Alternatively, `workflowr` has some build-in commands to check the status, add, commit, and push the files to Github. 
+
+These commands parallel the naming of the Git commands (e.g. `_commit`, `_pull`, `_push`):
+
+* `wflow_status()`: check the status of the analysis files (what has been changed, knitted, committed)
+* `wflow_git_commit(file, msg)`: commit the files with the specified message
+* `wflow_git_push()`: push current commits to remote repository
+* `wflow_git_pull()`: pull from remote repository
+
+The build and commit steps can be combined using the `wflow_publish(files, msg)` function. 
+
+## Deploy the page
+
+The page can be deployed on GitHub, GitLab, or really any site you would like. I often use GitHub Pages. Directions for some deployment options are listed below:
+
+* [Github Pages](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+* [Gitlab](https://jdblischak.github.io/workflowr/articles/wflow-06-gitlab.html)
+* [Amazon S3/BeakerBrowser](https://jdblischak.github.io/workflowr/articles/wflow-08-deploy.html)

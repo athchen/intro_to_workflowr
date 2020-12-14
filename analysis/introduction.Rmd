@@ -1,0 +1,48 @@
+---
+title: "Introduction"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Motivation
+
+Suppose you are working on a project with a collaborator, and they ask you to analyze some data. You do the analysis in an Rmd, and send the knitted output to the collaborator. The collaborator asks you to make some adjustments to the analysis, so you edit the analysis and send it back to them. After multiple iterations, this might be how your folder looks:
+
+<center>
+  <figure>
+    <img src="assets/xkcd_documents.png" alt="xkcd_documents" width="200"/>
+    <figcaption>https://xkcd.com/1459/</figcaption>
+  </figure>
+</center>
+
+To help organize and create reproducible data analyses, [people typically recommend](http://jtleek.com/ads2020/week-3.html#organizing-a-data-analysis)
+
+1. Project/Directory organization
+2. Version control 
+
+## `workflowr`
+<center>
+  <figure>
+    <img src="assets/hex-workflowr.png" alt="workflowr" width="200"/>
+    <figcaption>https://jdblischak.github.io/workflowr/index.html</figcaption>
+  </figure>
+</center>
+
+`workflowr` offers an elegant solution to promote effective project management, reproducible results, collaboration, and sharing of results. As stated on their [site](https://jdblischak.github.io/workflowr/index.html), facilitates
+
+1. Organization
+  * Provides a project template with organized subdirectories
+  * Mixes code and results with R Markdown
+  * Uses Git to version both source code and results
+2. Reproducible
+  * Displays the code version used to create each result
+  * Runs each analysis in an isolated R session
+  * Records the session information of each analysis
+  * Sets the same seed for random number generation for each analysis
+3. Shareable
+  * Creates a website to present your research results
+  * Documents how to host your website for free via GitHub Pages or GitLab Pages
+  * Creates links to past versions of results
+
+I highly recommend checking out their [webpage](https://jdblischak.github.io/workflowr/index.html) as it contains very clear examples of how to use the package and answers to common questions. 

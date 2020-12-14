@@ -1,14 +1,26 @@
 name: "workflowr"
 output_dir: ../docs
 navbar:
-  title: "workflowr"
+  title: "Introduction to workflowr"
   left:
-  - text: Home
-    href: index.html
-  - text: About
-    href: about.html
+  - text: Introduction
+    href: introduction.html
+  - text: Interactive Tutorial
+    menu:
+      - text: Start-up
+        href: initialization.html
+      - text: Customization
+        href: customization.html
+      - text: Standard workflow
+        href: standard_workflow.html
+      - text: Tips and Tricks
+        href: tips_and_tricks.html
   - text: License
     href: license.html
+  right:
+  - icon: fa-github
+    text: Code
+    href: https://github.com/athchen/intro_to_workflowr
 output:
   workflowr::wflow_html:
     toc: yes

@@ -1,0 +1,19 @@
+---
+title: "tips_and_tricks"
+author: "Athena Chen"
+date: "2020-12-14"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+```{r}
+
+```
+
+
+## Changing nav-bar means you have to reknit all docs (annoying for docs that take a long time to compile)
+
+## Probably can only change icon with custom css, but part of the appeal is not digging into the CSS

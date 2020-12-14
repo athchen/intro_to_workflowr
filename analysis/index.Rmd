@@ -1,5 +1,5 @@
 ---
-title: "Home"
+title: "Overview"
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
@@ -8,4 +8,10 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+This site serves as slides for my talk, *Introduction to `workflowr`*, on December 15, 2020 for the JHSPH Biostatistics Computing Club. 
+
+Some additional (and very helpful) resources for `workflowr` can be found here: 
+
+* `workflowr` [package site](https://jdblischak.github.io/workflowr/index.html)
+* `workflowr` [Github](https://github.com/jdblischak/workflowr)
+* Blischak JD, Carbonetto P, and Stephens M. Creating and sharing reproducible research code the workflowr way [version 1; peer review: 3 approved]. F1000Research 2019, 8:1749 (https://doi.org/10.12688/f1000research.20843.1)
