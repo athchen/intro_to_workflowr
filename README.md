@@ -3,8 +3,6 @@
 JHSPH Biostatistics Computing Club Talk
 Tuesday, December 15, 2020
 
--------
-
 An interactive tutorial for introducing the `workflowr` package for reproducible research. 
 
 ## References

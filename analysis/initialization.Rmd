@@ -110,7 +110,7 @@ This command only build files that have been changed since the last build. If yo
 wflow_build(c("analysis/rebuild_file.Rmd", "analysis/rebuild_file_2.Rmd"))
 ```
 
-Note that if you change the navigation bar, you have to rebuild all the files so that each file shows the new navigation bar.  
+Note that if you change the navigation bar, you have to rebuild all the files so that each file shows the new navigation bar (e.g. `wflow_publish("analysis/_site.yml", "Change the theme", republish = TRUE)`).
 
 The current site can be viewed locally using:
 

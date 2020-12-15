@@ -1,15 +1,15 @@
 ---
-title: "standard_workflow"
-author: "Athena Chen"
-date: "2020-12-14"
+title: "Standard workflow"
 output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
 ---
 
-## Introduction
+Typically the workflow for editing and publishing your results is as follows:
 
-```{r}
-
-```
-
+1. Open a new or existing R Markdown file in analysis/ (optionally using `wflow_open()`)
+2. Perform your analysis in the R Markdown file.
+3. Run `wflow_build()` to view the results as they will appear on the website (alternatively press the Knit button in RStudio)
+4. Go back to step 2 until you are satisfied with the result/hit an intermediary step. 
+5. Run `wflow_publish()` to commit the source files (R Markdown files or other files in code/, data/, and output/), build the HTML files, and commit the HTML files
+6. Push the changes

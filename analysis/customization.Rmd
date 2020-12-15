@@ -1,18 +1,36 @@
 ---
-title: "customization"
-author: "Athena Chen"
-date: "2020-12-14"
+title: "Customization"
 output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
 ---
 
-## Bootstrap themes
-https://bootswatch.com/
+## Themes
 
-## Introduction
+To customize themes, you use a custom CSS file or a default theme. Theme options can be found at https://bootswatch.com/. To use a default theme, all you have to do is change the theme name in `docs/_site.yml`. Theme names must be in all lowercase. 
 
-```{r}
+## Navigation Bar
 
-```
+The navigation bar options are detailed in [*R Markdown: The Definitive Guide*](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#site-navigation). Customizations include:
 
+1. Selecting the `default` or `inverse` navigation bar
+2. Setting whether the navigation items are on the left or the right. 
+3. Menus
+4. Internal/External links
+5. Icons (see below)
+
+## Icons
+
+Because workflowr uses R Markdown to create websites, the following icon packs are also available for use:
+
+* [Font Awesome](https://fontawesome.com/icons)
+* [Ionicons](http://ionicons.com/)
+* [Bootstrap Glyphicons](https://getbootstrap.com/docs/3.3/components/#glyphicons)
+
+When referring to an icon, you should use its full name including the icon set prefix (e.g., `fa-github`, `ion-social-twitter`, and `glyphicon-time`).
+
+## Other customization options
+
+As noted earlier, the website is built from R Markdowns, so many customization listed in the [*R Markdown: The Definitive Guide*](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html) are also applicable. 
+
+Other useful reference: https://jdblischak.github.io/workflowr/articles/wflow-02-customization.html. 

@@ -13,8 +13,6 @@ navbar:
         href: customization.html
       - text: Standard workflow
         href: standard_workflow.html
-      - text: Tips and Tricks
-        href: tips_and_tricks.html
   - text: License
     href: license.html
   right:
@@ -25,5 +23,5 @@ output:
   workflowr::wflow_html:
     toc: yes
     toc_float: yes
-    theme: cosmo
+    theme: darkly
     highlight: textmate
