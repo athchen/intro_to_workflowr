@@ -3,7 +3,7 @@ output_dir: ../docs
 navbar:
   title: "Introduction to workflowr"
   left:
-  - text: Introduction
+  - text: Motivation
     href: introduction.html
   - text: Interactive Tutorial
     menu:
@@ -23,5 +23,5 @@ output:
   workflowr::wflow_html:
     toc: yes
     toc_float: yes
-    theme: darkly
+    theme: flatly
     highlight: textmate
